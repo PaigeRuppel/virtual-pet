@@ -2,9 +2,13 @@ package virtual.pet.project;
 
 public class VirtualPet {
 
-	int hunger = 70;
-	int boredom = 70;
-	int tired = 70;
+	boolean running() {
+		return true;
+	}
+
+	int hunger = 50;
+	int boredom = 50;
+	int tired = 50;
 
 	void tick() {
 		hunger = hunger + 5;
@@ -12,33 +16,40 @@ public class VirtualPet {
 		tired = tired + 5;
 	}
 
-	void giveFood() {
-		hunger = hunger - 20;
-	}
-
 	boolean isHungry() {
 		return hunger >= 60;
 	}
 
-	void playWith() {
-		boredom = boredom - 20;
+	boolean isVeryHungry() {
+		return hunger >= 80;
 	}
 
 	boolean isBored() {
 		return boredom >= 60;
 	}
 
-	void giveRest() {
-		tired = tired - 20;
+	boolean isVeryBored() {
+		return boredom >= 80;
 	}
 
 	boolean isTired() {
 		return tired >= 60;
 	}
 
-	boolean running() {
-		return true;
+	boolean isVeryTired() {
+		return tired >= 80;
 	}
 
-	// void feed(int amount) { }
+	void giveFood() {
+		hunger = hunger - 20;
+	}
+
+	void playWith() {
+		boredom = boredom - 20;
+	}
+
+	void giveRest() {
+		tired = tired - 20;
+	}
+
 }
