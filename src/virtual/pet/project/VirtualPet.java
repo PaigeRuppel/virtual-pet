@@ -51,5 +51,9 @@ public class VirtualPet {
 	void giveRest() {
 		tired = tired - 20;
 	}
+	
+	boolean isDead() {
+		return hunger >=100 || tired >+ 100 || boredom >= 100;
+	}
 
 }
