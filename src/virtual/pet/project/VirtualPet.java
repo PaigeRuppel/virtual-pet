@@ -6,8 +6,8 @@ public class VirtualPet {
 		return true;
 	}
 
-	int hunger = 50;
-	int boredom = 50;
+	int hunger = 55;
+	int boredom = 55;
 	int tired = 50;
 
 	void tick() {
