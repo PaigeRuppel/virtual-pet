@@ -30,14 +30,13 @@ public class VirtualPetApp {
 		writeLine("1. Give food (decreases hunger)");
 		writeLine("2. Entertain (decreases boredom");
 		writeLine("3. Give rest (decreases fatigue)");
-//		Think about changing menu to String menu ... that way you can call that? but that will only be in the scope of the main method...
 		writeLine("Are you ready to care for Bob? Type \"yes\" to begin the game.");
 		String begin = input.nextLine();
 
 		if (begin.toLowerCase().equals("yes")) {
 			writeLine("Bob now depends on you for life.");
 			writeLine(
-					"Type \"menu\" if you need to view possible commands again. \n -this advances time in the game because you need to remember directions.");
+					"Type \"menu\" if you need to view possible commands again. \n Note - this advances time in the game because you need to remember directions.");
 			writeLine("Type \"quit\" at any time to abandon Bob.");
 			writeLine("Type \"stats\" at any time to check on Bob's current needs.");
 		} else {
@@ -46,18 +45,18 @@ public class VirtualPetApp {
 		}
 
 		do {
-			writeLine("What would you like to do with Bob");
+			writeLine("What would you like to do with Bob?");
 
 			String command = input.nextLine();
 			checkForQuit(command);
-			checkForMenu(command);
+			checkForMenu(command);//checking the menu does advance time - user should remember directions
 
 			if (command.toLowerCase().equals("stats")) {
 				writeLine("Bob's current hunger is " + bob.hunger);
 				writeLine("Bob's current fatigue is " + bob.tired);
 				writeLine("Bob's current boredom is " + bob.boredom);
 				writeLine(
-						"Ranges:\n1-59 = acceptable level \n60-79 = needs attention \n80-99 = urgent need! \n100 = DEATH");
+						"Ranges:\n0-59 = acceptable level \n60-79 = needs attention \n80-99 = urgent need! \n100 = DEATH");
 				continue; // this will pull current stats, skip the rest of the
 							// loop (and the tick()) method and take you back to
 							// the beginning of the game loop
@@ -120,6 +119,7 @@ public class VirtualPetApp {
 
 		} while (bob.running());
 
+		input.close();
 	}
 
 	public static void writeLine(String message) {
